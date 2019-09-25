@@ -1,0 +1,49 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.17.3/libexec/bin/yarn.js install
+
+PATH: 
+  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/jeromedusanter/Library/Android/sdk/emulator:/Users/jeromedusanter/Library/Android/sdk/tools:/Users/jeromedusanter/Library/Android/sdk/tools/bin:/Users/jeromedusanter/Library/Android/sdk/platform-tools:/Users/jeromedusanter/Library/Android/sdk/emulator:/Users/jeromedusanter/Library/Android/sdk/tools:/Users/jeromedusanter/Library/Android/sdk/tools/bin:/Users/jeromedusanter/Library/Android/sdk/platform-tools
+
+Yarn version: 
+  1.17.3
+
+Node version: 
+  10.16.3
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: EACCES: permission denied, scandir '/Users/jeromedusanter/.config/yarn/link'
+
+npm manifest: 
+  {
+    "main": "node_modules/expo/AppEntry.js",
+    "scripts": {
+      "start": "expo start",
+      "android": "expo start --android",
+      "ios": "expo start --ios",
+      "web": "expo start --web",
+      "eject": "expo eject"
+    },
+    "dependencies": {
+      "expo": "^35.0.0",
+      "react": "16.8.3",
+      "react-dom": "16.8.3",
+      "react-native": "https://github.com/expo/react-native/archive/sdk-35.0.0.tar.gz",
+      "react-native-web": "^0.11.7"
+    },
+    "devDependencies": {
+      "@types/react": "^16.8.23",
+      "@types/react-native": "^0.57.65",
+      "babel-preset-expo": "^7.0.0",
+      "typescript": "^3.4.5"
+    },
+    "private": true
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
