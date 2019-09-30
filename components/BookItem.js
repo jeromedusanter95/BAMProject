@@ -1,7 +1,38 @@
 import React from 'react'
-import { StyleSheet, View, Text, Image } from 'react-native'
+import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native'
 
 class BookItem extends React.Component {
+
+  constructor(props) {
+      super(props)
+      this.state = {
+        isFavorite: false
+      }
+    }
+
+  toggleFavorite(){
+    this.setState({
+      isFavorite: !this.state.isFavorite
+    })
+  }
+
+  displayFavoriteImage(){
+    if(this.state.isFavorite){
+      return(
+        <Image
+          source={require('../images/ic_favorite.png')}
+          style={styles.favorite_image}
+          />
+      )
+    }else{
+      return(
+        <Image
+          source={require('../images/ic_no_favorite.png')}
+          style={styles.favorite_image}
+          />
+      )
+    }
+  }
 
   render() {
     return (
@@ -11,10 +42,11 @@ class BookItem extends React.Component {
           <Text style={styles.author_text}>{this.props.book.author}</Text>
           <Text style={styles.description_text} numberOfLines={6}>{this.props.book.description}</Text>
         </View>
-          <Image
-            style={styles.favorite_image}
-            source={require('../images/ic_no_favorite.png')}
-            />
+        <TouchableOpacity
+          onPress={() => this.toggleFavorite()}
+          >
+          {this.displayFavoriteImage()}
+        </TouchableOpacity>
       </View>
     )
   }
