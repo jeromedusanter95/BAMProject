@@ -1,15 +1,11 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { getListHardCoverFictionBestSellers } from './api/BooksApi'
+import BestSellerList from './components/BestSellerList'
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>{ getListHardCoverFictionBestSellers().then( response => {
-        console.log(response)
-      }).toString()
-      }
-      </Text>
+      <BestSellerList/>
     </View>
   );
 }
@@ -20,5 +16,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-  },
+    marginTop: 40
+  }
 });
