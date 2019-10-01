@@ -3,7 +3,7 @@ import { StyleSheet, FlatList } from 'react-native'
 import BookItem from './BookItem'
 
 class BookList extends React.Component {
-  
+
   render(){
     return(
       <FlatList
@@ -11,7 +11,10 @@ class BookList extends React.Component {
         data={this.props.books}
         keyExtractor={(item) => item.book_uri.toString()}
         renderItem={({item}) => (
-            <BookItem  book= {item}/>
+            <BookItem
+              book= {item}
+              displayFavoriteImage= {this.props.displayFavoriteImage}
+              />
           )}
         />
     )

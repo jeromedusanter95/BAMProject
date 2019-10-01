@@ -1,23 +1,21 @@
 import React from 'react'
 import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native'
+import { connect } from 'react-redux'
 
 class BookItem extends React.Component {
 
-  constructor(props) {
-      super(props)
-      this.state = {
-        isFavorite: false
-      }
-    }
-
   toggleFavorite(){
-    this.setState({
-      isFavorite: !this.state.isFavorite
-    })
+    const action = {
+      type: "TOGGLE_FAVORITE",
+      value: this.props.book
+    }
+    this.props.dispatch(action)
   }
 
   displayFavoriteImage(){
-    if(this.state.isFavorite){
+    if(!this.props.displayFavoriteImage){
+      return null
+    }else if(this.props.favoriteBooks.findIndex(item => item.primary_isbn10 == this.props.book.primary_isbn10) !== -1){
       return(
         <Image
           source={require('../images/ic_favorite.png')}
@@ -84,4 +82,10 @@ const styles = StyleSheet.create({
   }
 })
 
-export default BookItem
+const mapStateToProps = state => {
+  return {
+    favoriteBooks: state.favoriteBooks
+  }
+}
+
+export default connect(mapStateToProps)(BookItem)

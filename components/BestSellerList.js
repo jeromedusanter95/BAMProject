@@ -41,6 +41,7 @@ class BestSellerList extends React.Component {
         <Text style={styles.title_text}>{this.state.title}</Text>
         <BookList
           books = {this.state.books}
+          displayFavoriteImage= {true}
           />
         {this.displayLoading()}
       </View>
