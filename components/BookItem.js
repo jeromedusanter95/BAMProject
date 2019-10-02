@@ -1,6 +1,7 @@
 import React from 'react'
 import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
+import ChangeImageSize from '../animations/ChangeImageSize'
 
 class BookItem extends React.Component {
 
@@ -17,17 +18,21 @@ class BookItem extends React.Component {
       return null
     }else if(this.props.favoriteBooks.findIndex(item => item.primary_isbn10 == this.props.book.primary_isbn10) !== -1){
       return(
-        <Image
-          source={require('../images/ic_favorite.png')}
-          style={styles.favorite_image}
-          />
+        <ChangeImageSize shouldEnlarge={true}>
+          <Image
+            source={require('../images/ic_favorite.png')}
+            style={styles.favorite_image}
+            />
+        </ChangeImageSize>
       )
     }else{
       return(
+      <ChangeImageSize shouldEnlarge={false}>
         <Image
           source={require('../images/ic_no_favorite.png')}
           style={styles.favorite_image}
           />
+        </ChangeImageSize>
       )
     }
   }
@@ -59,7 +64,7 @@ const styles = StyleSheet.create({
   },
   text_container:{
     flex: 1,
-    marginRight: 20
+    marginRight: 30
   },
   title_text: {
     fontWeight: 'bold',
@@ -75,8 +80,9 @@ const styles = StyleSheet.create({
     color: '#666666'
   },
   favorite_image: {
-    width: 30,
-    height: 30,
+    flex: 1,
+    width: null,
+    height: null,
     marginTop: 10,
     marginRight: 10
   }
